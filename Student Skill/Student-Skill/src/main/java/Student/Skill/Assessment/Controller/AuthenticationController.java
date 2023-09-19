@@ -6,12 +6,16 @@ import Student.Skill.Assessment.payload.ApiResponse;
 import Student.Skill.Assessment.payload.request.LoginRequest;
 import Student.Skill.Assessment.payload.request.UserRequest;
 import Student.Skill.Assessment.utils.AppConstants;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(AppConstants.BASE_URL+"/auth")

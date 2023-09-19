@@ -1,12 +1,10 @@
 package Student.Skill.Assessment.Security;
 
-
 import Student.Skill.Assessment.Entity.User;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 
 import java.util.Collection;
 import java.util.UUID;

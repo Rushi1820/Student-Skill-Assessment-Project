@@ -1,6 +1,5 @@
 package Student.Skill.Assessment.Service;
 
-
 import Student.Skill.Assessment.Entity.Course;
 import Student.Skill.Assessment.Entity.User;
 import Student.Skill.Assessment.Repository.CourseRepository;
@@ -13,12 +12,11 @@ import Student.Skill.Assessment.exceptions.ResourceNotFoundException;
 import Student.Skill.Assessment.exceptions.UnauthorizedException;
 import Student.Skill.Assessment.payload.ApiResponse;
 import Student.Skill.Assessment.payload.request.LoginRequest;
-
 import Student.Skill.Assessment.payload.request.UserRequest;
 import Student.Skill.Assessment.payload.response.LoginResponse;
 import Student.Skill.Assessment.utils.AppConstants;
 import Student.Skill.Assessment.utils.GenderTypes;
-import jakarta.transaction.Transactional;
+
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +25,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 

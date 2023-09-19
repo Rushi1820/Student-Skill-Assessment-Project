@@ -1,7 +1,7 @@
 package Student.Skill.Assessment.payload.response;
 
 
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
