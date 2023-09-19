@@ -1,10 +1,12 @@
 package Student.Skill.Assessment.Entity;
 
+import Student.Skill.Assessment.utils.GenderTypes;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -26,10 +28,8 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name="ID")
-    private UUID id;
+    private ObjectId id;
     @Column(name="firstname")
     private String firstName;
     @Column(name="lastname")
@@ -41,7 +41,7 @@ public class User implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name="gender")
-    private String gender;
+    private GenderTypes gender;
     @Column(name="phone")
     private String phone;
     @Column(name="password")
@@ -50,7 +50,7 @@ public class User implements Serializable {
     private String graduationYear;
 
     @DBRef
-    private List<Course> course;
+    private Course course;
     //    @ManyToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "branch_id")
 //    private Branch branch;

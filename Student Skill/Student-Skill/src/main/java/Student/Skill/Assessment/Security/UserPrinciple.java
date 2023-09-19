@@ -2,6 +2,7 @@ package Student.Skill.Assessment.Security;
 
 import Student.Skill.Assessment.Entity.User;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,7 +19,7 @@ public class UserPrinciple implements UserDetails {
         this.user = user;
     }
 
-    public UUID getUserId(){
+    public ObjectId getUserId(){
         return user.getId();
     }
 //    @Override

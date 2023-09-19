@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -27,9 +28,9 @@ import java.util.UUID;
 public class Schools implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
-    private UUID id;
+//    @GeneratedValue(generator = "system-uuid")
+//    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    private ObjectId id;
 
     private String name;
 

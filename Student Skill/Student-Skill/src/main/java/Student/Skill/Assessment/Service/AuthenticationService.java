@@ -18,6 +18,7 @@ import Student.Skill.Assessment.utils.AppConstants;
 import Student.Skill.Assessment.utils.GenderTypes;
 
 import lombok.extern.slf4j.Slf4j;
+import org.bson.types.ObjectId;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -81,14 +82,16 @@ public class AuthenticationService {
 
     @Transactional
     public ApiResponse signUp(UserRequest userRequest) {
-        Course course = courseRepository.findById(userRequest.getCourseId()).orElseThrow(() -> {
+        ObjectId courseId = userRequest.getCourseId(); // Convert String to ObjectId
+
+        Course course = courseRepository.findById(courseId).orElseThrow(() -> {
             throw new ResourceNotFoundException("Course not found with Id: " + userRequest.getCourseId());
         });
        // SecurityQuestions securityQuestion = securityQuestionsRepository.findByIdAndActiveIndex(userRequest.getSecurityQuestionId(), true);
         User user = modelMapper.map(userRequest, User.class);
-        user.setGender(String.valueOf(GenderTypes.valueOf(userRequest.getGender())));
+        user.setGender(GenderTypes.valueOf(String.valueOf(userRequest.getGender())));
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
-        user.setCourse((List<Course>) course);
+        user.setCourse(courseRepository.findById(userRequest.getCourseId()).orElse(null));
         user.setSchool(course.getSchool());
        // user.setStatus(Status.ACTIVE);
         user.setActiveIndex(Boolean.TRUE);

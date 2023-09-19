@@ -1,9 +1,11 @@
 package Student.Skill.Assessment.payload.request;
 
+import Student.Skill.Assessment.utils.GenderTypes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.ObjectId;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -30,7 +32,7 @@ public class UserRequest {
     private String email;
 
     @NotNull(message = "In-valid gender")
-    private String gender;
+    private GenderTypes gender;
 
     @Pattern(regexp = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$")
     private String phone;
@@ -41,7 +43,7 @@ public class UserRequest {
 ////    @NotNull(message = "In-valid graduation year")
 //    private String graduationYear;
     @NotNull
-    private String courseId;
+    private ObjectId courseId;
 //    @NotNull
 //    private UUID SecurityQuestionId;
 //    @NotBlank(message = "In-valid answer")
